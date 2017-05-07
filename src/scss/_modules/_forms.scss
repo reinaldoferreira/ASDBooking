@@ -1,0 +1,17 @@
+.form-group { margin-bottom: $base-unit / 2; }
+
+.form-control {
+  @include typography(body-copy);
+  border: 1px solid $gray;
+  display: block;
+  max-width: 280px;
+  padding: $base-unit / 4;
+  width: 100%;
+}
+
+.btn {
+  @include typography(body-copy);
+  cursor: pointer;
+  display: inline-block;
+  padding: 6px 12px;
+}
