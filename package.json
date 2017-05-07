@@ -14,7 +14,7 @@
     "test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\"",
     "test:watch": "npm run test -- --watch",
     "nsp": "nsp check",
-    "start-mockapi": "json-server --watch src/api/data.json --port 3030",
+    "start-mockapi": "json-server --watch src/js/api/data.json --port 3030",
     "clean-dist": "rimraf ./dist && mkdir dist",
     "prebuild": "npm-run-all clean-dist test lint",
     "build": "babel-node buildScripts/build.js",

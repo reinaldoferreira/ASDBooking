@@ -9,7 +9,7 @@ export default {
   devtool: 'source-map',
   noInfo: false,
   entry: {
-    main: path.resolve(__dirname, 'src/index')
+    main: path.resolve(__dirname, 'src/js/index')
   },
   target: 'web',
   output: {
