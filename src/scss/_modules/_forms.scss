@@ -16,3 +16,10 @@
   display: inline-block;
   padding: 6px 12px;
 }
+
+.error-message {
+  color: red;
+  display: none;
+
+  &.is-active { display: block; }
+}
