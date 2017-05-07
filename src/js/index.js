@@ -1,7 +1,6 @@
 import '../main.min.css'
-import { isObject, getElement, on, toggleClass,
-  getEventTarget, removeClass, addClass } from './helpers/helpers'
-import { getDaysMatrix, getTimesList, runAfterPromise } from './bookingTable/bookingTemplate'
+import { on } from './helpers/helpers'
+import { runAfterPromise } from './bookingTable/bookingTemplate'
 import { getAvailability } from './api/booking'
 
 // DOM Elems
@@ -20,5 +19,7 @@ on(btnLoad, 'click', () => {
   let start = !startingDate.value ? '' : `?weekBeginning=${startingDate.value}`
   let hours = !cleaningDuration.value ? '' : `?visitDuration=${cleaningDuration.value}`
 
+  // Clean table before loading it again
+  global.document.getElementById('bookingTable').innerHTML = ''
   getAvailability(start + hours).then(data => runAfterPromise(data))
 })
