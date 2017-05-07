@@ -8,7 +8,8 @@ export const getDaysMatrix = data => data.map(x => {
     let possible = `<li
         class="booking__cel schedule__item ${isAvailable}"
         data-day="${weekDay}"
-        data-startTime="${x.start}">
+        data-startTime="${x.start}"
+        data-endTime="${x.end}">
         Start
       </li>`
     return possible

@@ -23,11 +23,13 @@
     </form>
 
     <!-- Users booking date and time -->
-    <div class="col-half is-last user-booking">
+    <div class="col-half user-booking">
       <h3>Do you wish to book a cleaning service for <span class="user-booking__item" id="bookingDate"></span>, starting at <span class="user-booking__item" id="bookingTime"></span>, during <span class="user-booking__item" id="bookingDuration">0.5 hours</span>?</h3>
-      <button class="btn btn--booking">Yes!!!</button>
+      <button class="btn btn--booking" id="submitOrder">Yes!!!</button>
     </div>
   </div>
+  <!-- After user submit -->
+  <div class="container user-booked" id="userBooked"></div>
 
   <div class="container">
     <!-- Booking Table -->
