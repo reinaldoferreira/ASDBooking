@@ -1,7 +1,15 @@
 .container {
+  margin-bottom: $base-unit;
   margin-left: auto;
   margin-right: auto;
-  max-width: 960px;
+  max-width: 1024px;
   padding: 0 $base-unit;
   position: relative;
+
+  &.container--grid { @include clearfix(); }
+}
+
+.col-half {
+  float: left;
+  width: 50%;
 }

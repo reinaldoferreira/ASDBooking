@@ -5,19 +5,33 @@
   <title>Awesome Super Duper Booking Schedule</title>
 </head>
 <body>
-  <h1>Sweet</h1>
-  <form>
-    <div class="form-group">
-      <label for="startingDate">Starting date:</label>
-      <input type="date" class="form-control" min="2016-12-05" max="2018-12-01" id="startingDate" placeholder="dd-mm-yyyy">
+  <div class="container container--grid">
+    <h1>Sweet</h1>
+
+    <!-- Search time -->
+    <form class="col-half">
+      <div class="form-group">
+        <label for="startingDate">Starting date:</label>
+        <input type="date" class="form-control" min="2016-12-05" max="2018-12-01" id="startingDate" placeholder="dd-mm-yyyy">
+      </div>
+      <div class="form-group">
+        <label for="cleaningDuration">Cleaning duration:</label>
+        <input type="number" class="form-control" min="0.5" max="8" id="cleaningDuration" placeholder="X.Xhrs">
+      </div>
+      <p class="error-message">Please select date and/or working hours</p>
+      <button type="submit" class="btn" id="bookingSearch">Load Table</button>
+    </form>
+
+    <!-- Users booking date and time -->
+    <div class="col-half is-last user-booking">
+      <h3>Do you wish to book a cleaning service for <span class="user-booking__item" id="bookingDate"></span>, starting at <span class="user-booking__item" id="bookingTime"></span>, during <span class="user-booking__item" id="bookingDuration">0.5 hours</span>?</h3>
+      <button class="btn btn--booking">Yes!!!</button>
     </div>
-    <div class="form-group">
-      <label for="cleaningDuration">Cleaning duration:</label>
-      <input type="number" class="form-control" min="0.5" max="8" id="cleaningDuration" placeholder="X.Xhrs">
-    </div>
-    <p class="error-message">Please select date and/or working hours</p>
-    <button type="submit" class="btn btn-default" id="bookingSearch">Load Table</button>
-  </form>
-  <ul class="booking-table" id="bookingTable"></ul>
+  </div>
+
+  <div class="container">
+    <!-- Booking Table -->
+    <ul class="booking-table" id="bookingTable"></ul>
+  </div>
 </body>
 </html>

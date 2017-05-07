@@ -1,0 +1,7 @@
+.user-booking {
+  display: none;
+
+  &.is-active { display: block; }
+
+  &__item { color: $blue; }
+}
