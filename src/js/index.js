@@ -9,7 +9,7 @@ getAvailability(queryParams).then(data => {
     let dayTime = x.startTimes.map(x => {
       let isAvailable = x.possible ? 'is-available' : 'is-disabled'
       let possible = `<li
-          class="schedule__item ${isAvailable}"
+          class="booking__cel schedule__item ${isAvailable}"
           data-day="${weekDay}"
           data-startTime="${x.start}">
           Start
@@ -19,14 +19,14 @@ getAvailability(queryParams).then(data => {
 
     return `<li
       class="booking__col">
-        <span class="schedule__day">${x.day}</span>
-        <ul class="avbl__schedule">${dayTime}</ul>
+        <span class="booking__day">${x.day}</span>
+        <ul class="booking__schedule">${dayTime}</ul>
     </li>`
   }).join('')
 
   let arrOfTimes = data.map(x => x.startTimes.map(x => `${x.start} - ${x.end}`))
-  let timesList = `<li class="booking__col avbl__times"><ul>${arrOfTimes[0].map(x =>
-    `<li>${x}</li>`).join('')}</ul></li>`
+  let timesList = `<li class="booking__col booking__times"><ul>${arrOfTimes[0].map(x =>
+    `<li class="booking__cel booking__cel--time">${x}</li>`).join('')}</ul></li>`
 
   // join timeList and daysAndPossibilities to be printed
   let template = timesList + daysAndPossibilities

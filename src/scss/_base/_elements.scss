@@ -1,6 +1,7 @@
 body {
   @include typography(body-copy);
   color: $black;
+  padding: $base-unit;
 
   &.is-active { overflow: hidden; }
 }

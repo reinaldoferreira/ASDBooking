@@ -1,18 +1,46 @@
-// Temp style for easier visualization
-.booking__col {
-  display: inline-block;
+$item-border : 1px solid $white;
 
-  li { border: 1px solid $white; }
+.booking__col { display: inline-block; }
+
+.booking__cel { border: $item-border; }
+
+.booking__day {
+  background-color: $light-green;
+  border: $item-border;
+  color: white;
+  display: block;
+  padding: $base-unit / 2;
+}
+
+.booking__cel--time {
+  background-color: $gray;
+  padding: 0 $base-unit;
 }
 
 .schedule__item {
+  background: $light-gray;
   display: block;
+  text-indent: -9999px;
 }
 
 .is-disabled {
+  background-color: $xlight-gray;
   cursor: no-drop;
 }
 
 .is-available {
   cursor: pointer;
+  color: $white;
+
+  &:hover {
+    @include transition(150ms, all, ease);
+    background-color: $light-blue;
+  }
+
+  &.is-active {
+    @include typography(start);
+    background-color: $blue;
+    text-indent: initial;
+    text-align: center;
+  }
 }
