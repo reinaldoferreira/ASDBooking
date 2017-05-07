@@ -15,16 +15,10 @@ app.use(require('webpack-dev-middleware')(compiler, {
   publicPath: config.output.publicPath
 }))
 
-app.get('/users', (req, res) => {
-  return res.json([
-    {name: 'Fluffykins', species: 'rabbit', friendlyPoints: 80 },
-    {name: 'Caro', species: 'dog', friendlyPoints: 100 },
-    {name: 'Hamilton', species: 'dog', friendlyPoints: 100 }
-  ])
-})
+app.get('/users', (req, res) => res.json())
 
 app.get('/', (req, res) =>
   res.sendFile(path.join(__dirname, '../src/index.html')))
 
 app.listen(port, err =>
-  err ? console.log(chalk.red(err)) : open('http://localhost:' + port))
+  err ? console.log(chalk.red(err)) : open(`http://localhost:${port}/?inDev`))
