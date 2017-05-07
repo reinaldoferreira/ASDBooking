@@ -18,3 +18,5 @@ jspm_packages
 
 
 .DS_Store
+src/main.min.css
+dist/
