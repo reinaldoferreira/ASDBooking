@@ -1,0 +1,18 @@
+// Temp style for easier visualization
+.booking__col {
+  display: inline-block;
+
+  li { border: 1px solid $white; }
+}
+
+.schedule__item {
+  display: block;
+}
+
+.is-disabled {
+  cursor: no-drop;
+}
+
+.is-available {
+  cursor: pointer;
+}
