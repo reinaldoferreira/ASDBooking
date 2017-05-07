@@ -1,5 +1,6 @@
 import '../main.min.css'
-import { isObject } from './helpers/helpers'
+import { isObject, getElement, on, toggleClass,
+  getEventTarget, removeClass, addClass } from './helpers/helpers'
 import { getAvailability } from './api/booking'
 
 // DOM Elems

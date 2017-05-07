@@ -9,7 +9,7 @@ describe('isObject()', () => {
   it('should check if the given value is an object or not', () => {
     expect(isObject({name: 'Bob', surname: 'Burns'})).to.be.true
     expect(isObject(null)).to.be.true
-    expect(isObject(['Hulk', 'Lola'])).to.be.false
+    expect(isObject(['Hulk', 'Lola'])).to.be.true
     expect(isObject('I am a string')).to.be.false
     expect(isObject(222)).to.be.false
   })
