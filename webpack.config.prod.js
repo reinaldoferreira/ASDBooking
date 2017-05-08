@@ -25,6 +25,7 @@ export default {
     // Create HTML file that includes reference to bundled JS.
     new HtmlWebpackPlugin({
       template: 'src/index.html',
+      favicon: 'src/images/favicon-32x32.png',
       minify: {
         removeComments: true,
         collapseWhitespace: true,
