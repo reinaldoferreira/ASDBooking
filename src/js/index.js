@@ -1,7 +1,7 @@
 import '../main.min.css'
 import { on, getElement, toggleClass, getEventTarget, removeClass,
   addClass } from './helpers/helpers'
-import { runAfterPromise } from './bookingTable/bookingTemplate'
+import { runAfterPromise } from './bookingTable/bookingController'
 import { getAvailability, submitOrder } from './api/booking'
 
 // DOM Elems
