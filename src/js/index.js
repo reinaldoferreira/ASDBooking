@@ -1,33 +1,23 @@
 import '../main.min.css'
-import { on, getElement, toggleClass, getEventTarget, removeClass,
-  addClass } from './helpers/helpers'
+import { on, getElement, toggleClass, getEventTarget, removeClass, addClass } from './helpers/helpers'
 import { runAfterPromise } from './bookingTable/bookingController'
 import { getAvailability, submitOrder } from './api/booking'
+import dom from './domElements'
 
-// DOM Elems
-const btnLoad = document.getElementById('bookingSearch')
-const startingDate = document.getElementById('startingDate')
-const cleaningDuration = document.getElementById('cleaningDuration')
-const bookingTable = document.getElementById('bookingTable')
-const userDate = document.getElementById('bookingDate')
-const userTime = document.getElementById('bookingTime')
-const userDuration = document.getElementById('bookingDuration')
-const btnSubmitOrder = document.getElementById('submitOrder')
-
-// Helper vars
-var queryParams = '?weekBeginning=2016-12-05&visitDuration=2.5&postcode=EC1R%203BU'
-var bookingTo = {
-  day: startingDate.value,
+// Helpers
+let queryParams = '?weekBeginning=2016-12-05&visitDuration=2.5&postcode=EC1R%203BU'
+let bookingTo = {
+  day: dom.startingDate.value,
   start: '',
   end: '',
-  duration: cleaningDuration.value
+  duration: dom.cleaningDuration.value
 }
 
 // get promise done
 getAvailability(queryParams).then(data => runAfterPromise(data))
 
 // submit order
-on(btnSubmitOrder, 'click', () => {
+on(dom.btnSubmitOrder, 'click', () => {
   submitOrder(bookingTo.day, bookingTo.start, bookingTo.end, bookingTo.duration)
   .then(res => res.json())
   .then(data => {
@@ -38,14 +28,14 @@ on(btnSubmitOrder, 'click', () => {
 })
 
 // when user uses the form
-on(btnLoad, 'click', () => {
+on(dom.btnLoad, 'click', () => {
   event.preventDefault()
-  let start = !startingDate.value ? '' : `weekBeginning=${startingDate.value}&`
-  let hours = !cleaningDuration.value ? '' : `visitDuration=${cleaningDuration.value}`
+  let start = !dom.startingDate.value ? '' : `weekBeginning=${dom.startingDate.value}&`
+  let hours = !dom.cleaningDuration.value ? '' : `visitDuration=${dom.cleaningDuration.value}`
 
   // Clean table before loading it again
   if (start + hours !== '') {
-    bookingTable.innerHTML = ''
+    dom.bookingTable.innerHTML = ''
     getAvailability('?' + start + hours).then(data => runAfterPromise(data))
   } else {
     // Displays error message
@@ -57,7 +47,7 @@ on(btnLoad, 'click', () => {
   }
 })
 
-on(bookingTable, 'click', () => {
+on(dom.bookingTable, 'click', () => {
   event.stopPropagation()
   let target = getEventTarget()
   let arrOfItems = document.getElementsByClassName('is-available')
@@ -65,7 +55,7 @@ on(bookingTable, 'click', () => {
     day: target.dataset.day,
     start: target.dataset.starttime,
     end: target.dataset.endtime,
-    duration: cleaningDuration.value ? cleaningDuration.value : 0.5
+    duration: dom.cleaningDuration.value ? dom.cleaningDuration.value : 0.5
   }
 
   // removing is-active from all available items
@@ -76,8 +66,8 @@ on(bookingTable, 'click', () => {
     toggleClass(getElement(target), 'is-active')
     addClass('.user-booking', 'is-active')
     // Displaying user selections
-    getElement(userDate).innerHTML = bookingTo.day
-    getElement(userTime).innerHTML = bookingTo.start
-    getElement(userDuration).innerHTML = bookingTo.duration
+    getElement(dom.userDate).innerHTML = bookingTo.day
+    getElement(dom.userTime).innerHTML = bookingTo.start
+    getElement(dom.userDuration).innerHTML = bookingTo.duration
   }
 })
