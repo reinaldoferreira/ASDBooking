@@ -1,7 +1,7 @@
-const possibilitiesMatrix = data => data.map(x => {
+const possibilitiesMatrix = (day, data) => data.map(x => {
   return `<li
     class="booking__cel schedule__item ${x.possible ? 'is-available' : 'is-disabled'}"
-    data-day="${x.day}"
+    data-day="${day}"
     data-startTime="${x.start}"
     data-endTime="${x.end}">
     Start
@@ -12,7 +12,7 @@ export const daysMatrix = data => data.map(x => {
   return `<li
     class="booking__col">
       <span class="booking__day">${x.day}</span>
-      <ul class="booking__schedule">${possibilitiesMatrix(x.startTimes)}</ul>
+      <ul class="booking__schedule">${possibilitiesMatrix(x.day, x.startTimes)}</ul>
   </li>`
 }).join('')
 
