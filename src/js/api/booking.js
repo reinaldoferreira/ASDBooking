@@ -1,5 +1,5 @@
 import 'whatwg-fetch'
-import getBaseUrl from './baseUrl'
+import { getBaseUrl, BOOKING_API } from './baseUrl'
 
 const baseUrl = getBaseUrl()
 
@@ -22,7 +22,7 @@ function onError(error) {
 
 // Booking
 export function submitOrder(day, start, end, duration) {
-  return fetch('https://private-anon-17d1fe7cbf-housekeepavailability.apiary-mock.com/book/', {
+  return fetch(`${BOOKING_API}/book/`, {
     method: 'POST',
     body: JSON.stringify({
       'day': day,
