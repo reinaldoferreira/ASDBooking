@@ -1,5 +1,5 @@
 import '../main.min.css'
-import { on, getElement, toggleClass, getEventTarget, removeClass, addClass } from './helpers/helpers'
+import { on, getElement, toggleClass, removeClass, addClass } from './helpers/helpers'
 import { runAfterPromise } from './bookingTable/bookingController'
 import { getAvailability, submitOrder } from './api/booking'
 import dom from './domElements'
@@ -49,7 +49,7 @@ on(dom.btnLoad, 'click', () => {
 
 on(dom.bookingTable, 'click', () => {
   event.stopPropagation()
-  let target = getEventTarget()
+  let target = event.target
   let arrOfItems = document.getElementsByClassName('is-available')
   bookingTo = {
     day: target.dataset.day,

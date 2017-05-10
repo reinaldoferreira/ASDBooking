@@ -1,5 +1,4 @@
 import { expect } from 'chai'
-import jsdom from 'jsdom'
 import { getBaseUrl, BOOKING_API } from './baseUrl'
 
 describe('getBaseUrl()', () => {

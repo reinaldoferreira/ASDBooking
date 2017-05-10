@@ -19,12 +19,6 @@ export const on = (el, ev, cb) => {
   }
 }
 
-// Function used to get the event target
-export const getEventTarget = (e) => {
-  e = e || window.event;
-  return e.target || e.srcElement;
-}
-
 // Function used to toggle classes
 export const toggleClass = (el, className) => {
   if (Array.isArray(el)) {
