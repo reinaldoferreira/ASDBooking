@@ -1,4 +1,4 @@
-const possibilitiesMatrix = (day, data) => data.map(x => {
+export const possibilitiesMatrix = (day, data) => data.map(x => {
   return `<li
     class="booking__cel schedule__item ${x.possible ? 'is-available' : 'is-disabled'}"
     data-day="${day}"
