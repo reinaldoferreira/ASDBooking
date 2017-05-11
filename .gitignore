@@ -3,8 +3,12 @@ logs
 *.log
 npm-debug.log*
 
+# Tests
 # Coverage directory used by tools like istanbul
 coverage
+
+# Snapshots
+__snapshots__
 
 # Dependency directories
 node_modules

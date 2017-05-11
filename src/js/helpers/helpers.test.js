@@ -1,27 +1,22 @@
-import { expect } from 'chai'
-import jsdom from 'jsdom'
+import data from '../api/data.json'
 import { isObject, getElement } from './helpers'
 
-// on, toggleClass, getEventTarget,
-  // removeClass, addClass
-
 describe('isObject()', () => {
-  it('should check if the given value is an object or not', () => {
-    expect(isObject({name: 'Bob', surname: 'Burns'})).to.be.true
-    expect(isObject(null)).to.be.true
-    expect(isObject(['Hulk', 'Lola'])).to.be.true
-    expect(isObject('I am a string')).to.be.false
-    expect(isObject(222)).to.be.false
+  test('it should check if the given value is an object or not', () => {
+    let testData = data
+    expect(isObject({name: 'Bob', surname: 'Burns'})).toBeTruthy()
+    expect(isObject(null)).toBeTruthy()
+    expect(isObject(['Hulk', 'Lola'])).toBeTruthy()
+    expect(isObject('I am a string')).toBeFalsy()
+    expect(isObject(222)).toBeFalsy()
+    // expect(testData).toMatchSnapshot()
   })
 })
 
 describe('getElement()', () => {
-  it('should return a DOM element', (done) => {
-    jsdom.env(`<!DOCTYPE html><p class="p-class">Hello world</p>`, (err, window) => {
-      let element = window.document.querySelectorAll('.p-class')[0]
-      expect(getElement(element).innerHTML).to.equal('Hello world')
-      done()
-      window.close()
-    })
+  test('it should return a DOM element', () => {
+    document.body.innerHTML = '<p class="p-class">Hello world</p>'
+    let element = document.querySelectorAll('.p-class')[0]
+    expect(getElement(element).innerHTML).toBe('Hello world')
   })
 })
