@@ -18,8 +18,9 @@
     "clean-dist": "rimraf ./dist && mkdir dist",
     "prebuild": "npm-run-all clean-dist test lint",
     "build": "babel-node buildScripts/build.js",
-    "postbuild": "babel-node buildScripts/distServer.js",
-    "deploy": "surge ./dist"
+    "postbuild": "npm-run-all clean-dist test lint babel-node buildScripts/distServer.js",
+    "predeploy": "babel-node buildScripts/build.js",
+    "deploy": "surge --domain asdbooking.surge.sh ./dist"
   },
   "repository": {
     "type": "git",
