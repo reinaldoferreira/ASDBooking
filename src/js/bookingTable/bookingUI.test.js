@@ -1,3 +1,4 @@
+/* global expect */
 import { possibilitiesMatrix, daysMatrix, timeList } from './bookingUI'
 import data from '../api/data.json'
 

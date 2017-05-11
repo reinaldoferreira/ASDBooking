@@ -1,5 +1,5 @@
 // checks if the element is an obj
-export const isObject = value => typeof value === 'object'
+export const isObject = value => Array.isArray(value) ? false : typeof value === 'object'
 
 // Function used to get a DOM element
 export const getElement = (el) => el.nodeName ? el : document.querySelectorAll(el)[0]

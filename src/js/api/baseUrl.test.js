@@ -1,3 +1,4 @@
+/* global expect */
 import { getBaseUrl, BOOKING_API } from './baseUrl'
 
 describe('getBaseUrl()', () => {
