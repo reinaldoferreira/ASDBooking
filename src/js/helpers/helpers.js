@@ -8,13 +8,13 @@ export const getElement = (el) => el.nodeName ? el : document.querySelectorAll(e
 export const on = (el, ev, cb) => {
   if (Array.isArray(el)) {
     el.map(x => {
-      getElement(x).addEventListener(ev, () => {
-        if (typeof cb === 'function') cb.call()
+      getElement(x).addEventListener(ev, (e) => {
+        if (typeof cb === 'function') cb.call(null, e)
       }, false)
     })
   } else {
-    getElement(el).addEventListener(ev, () => {
-      if (typeof cb === 'function') cb.call()
+    getElement(el).addEventListener(ev, (e) => {
+      if (typeof cb === 'function') cb.call(null, e)
     }, false)
   }
 }

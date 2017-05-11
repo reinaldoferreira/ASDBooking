@@ -28,8 +28,8 @@ on(dom.btnSubmitOrder, 'click', () => {
 })
 
 // when user uses the form
-on(dom.btnLoad, 'click', () => {
-  event.preventDefault()
+on(dom.btnLoad, 'click', (e) => {
+  e.preventDefault()
   let start = !dom.startingDate.value ? '' : `weekBeginning=${dom.startingDate.value}&`
   let hours = !dom.cleaningDuration.value ? '' : `visitDuration=${dom.cleaningDuration.value}`
 
@@ -47,9 +47,9 @@ on(dom.btnLoad, 'click', () => {
   }
 })
 
-on(dom.bookingTable, 'click', () => {
-  event.stopPropagation()
-  let target = event.target
+on(dom.bookingTable, 'click', (e) => {
+  e.stopPropagation()
+  let target = e.target
   let arrOfItems = document.getElementsByClassName('is-available')
   bookingTo = {
     day: target.dataset.day,
