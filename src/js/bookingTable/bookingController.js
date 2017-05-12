@@ -10,8 +10,7 @@ export const runAfterPromise = (data) => {
 
   // join timeList and daysAndPossibilities to be printed
   let template = timeList(data) + daysMatrix(data)
-  let bookingTable = data.length ? template : '<p>Nothing found</p>'
 
   // Print template on html
-  global.document.getElementById('bookingTable').innerHTML = bookingTable
+  global.document.getElementById('bookingTable').innerHTML = template
 }
